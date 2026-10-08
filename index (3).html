@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sana: Premium, Within Reach.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+@font-face{
+font-family:'Evolventa';
+src:url('https://cdn.jsdelivr.net/gh/evolventa/evolventa@master/woff/Evolventa-Regular.woff') format('woff');
+font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+font-family:'Evolventa';
+src:url('https://cdn.jsdelivr.net/gh/evolventa/evolventa@master/woff/Evolventa-Oblique.woff') format('woff');
+font-weight:400; font-style:italic; font-display:swap;
+}
+@font-face{
+font-family:'Evolventa';
+src:url('https://cdn.jsdelivr.net/gh/evolventa/evolventa@master/woff/Evolventa-Bold.woff') format('woff');
+font-weight:700; font-style:normal; font-display:swap;
+}
+@font-face{
+font-family:'Evolventa';
+src:url('https://cdn.jsdelivr.net/gh/evolventa/evolventa@master/woff/Evolventa-BoldOblique.woff') format('woff');
+font-weight:700; font-style:italic; font-display:swap;
+}
+:root{
+--white:#FFFFFF;
+--brown:#8A6350;
+--brown-soft:#6B4E3C;
+--brown-muted:#8A7565;
+--line:#E7DCD1;
+--fill:#F7F1EA;
+--olive:#43431E;
+--olive-deep:#34331A;
+--burgundy:#4B1220;
+--burgundy-deep:#350D17;
+--burgundy-tint:#F6E8E8;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+background:var(--white);
+color:var(--brown);
+font-family:'Evolventa', Arial, sans-serif;
+font-weight:400;
+-webkit-font-smoothing:antialiased;
+position:relative;
+}
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background-image:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAGADASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAECAwUEBv/EADEQAAICAQMCBQIFAwUAAAAAAAABAhEDBBIhIjEFE0FRYTKBFCNCUnE0cpGhscHR8f/EABgBAAMBAQAAAAAAAAAAAAAAAAABBAID/8QAHREBAQEAAwEBAQEAAAAAAAAAAAERAgMhEjIxIv/aAAwDAQACEQMRAD8A8bZKGSUeEWrTSfdOmVZMcscuozsrWWero5FLh8Mkc9F2Nt8PmhWBMAGIEAwECAYAAKiVAMNvFpVKPY5vE9ClppSSpx5NTTNOCakmvhlXibitFlbaXSSceVnJdykseXjBySfwSh0u19xYclcEk91lqJZkSUv55EGdrbD3SBO1ZkUAMBEAGAAgHQAHfHH+Fy7oN7bpkvF3J4Un9NJ2W5NNHBip/dk8mOOp0sYy9Y1/0TbNlW55Y85W2TlHsnRdhTu1y16e6DLh8rdF+/JHFJxlX6l2+SvdiSzL6szxjLF0u2nwQxfQiueR7n6WWQkmlXsF/hVYAIZkgADQAAAAG3rk8sIKFNX1L4IYvPWn2S8uKv05Zy5M0+lJpJ+rZesOV4rTj2vtwTzjcX765PGILcskVVrkzMTjk6Zun6M0NbJ/hnvlufoZKTso6vyl7r/pKdqTT4ZLFJKUd3b39ittvuXRg32VnSuUWKac2kTKEqyr5L0YoNDEMQAAABfp54sySk+PY0Vp9LHGuqT+HLgzFoI1cXKL+GcmrnkxyUHKS+5y+fq5xqr6vCbyifiWeOTN5eN9Ef8AVnPF1JMrXckuxRJkxNeX1dWVCe52k7ZPTzal2ulyjnaaZdhTtS9u7CiJRanNy9SxFUpfnOlV96LDNFSASGIjAAAN+GmuNmZ4zpksO9Lqh/sb0HsxmL4zk/In88EvXb9Rd2e8brA7MnvSVJcEBF6B144QyY3fpza7oIboJOLW2XH8HNGTg7i6GpszjWpPc22/nkuxu4JspTTbV1uL0klSFSSGIZkGAhgHqMrqB5/xiVwjH3kbeolwYXii3Qv9rJur9Lez81lNNMlGG98C+pjhOUHcXRahSjjbk8f6r4+RSxSV2uzofmXk3rhklmeya/cxeteDDKCUty6kuCxTc3ufqc6jxaLsa6UKktAQzIMBDAN3UT7mfmxPJp5X62dOeXDbOh4F5EVXoiWXF9m+PKNOLDhv2L9dheDUyi1w+Uc7VF0uzUFmXB2Lo+W4bvW+Y/8AJXOW9Lsq4pEaaYD+OluMLW1tNV/6KEk1xx8FXmSra3aJwS32vbkzh2rR2RHYiSAVgAaeqnWOT9kzk0/jWoxUsu3NH54f+Tp1n9Pk/tMQ5dfGWeqO3lZfGl4nnwazDHLidTi+Yy7pGbBq6n2Bin9b/k7ceOTHDly26tUYKT6lxymx78b27lzfJQSfZDwtTlHG43GX2ZNV+nsymPcsx/SKhYAhiAGIAD//2Q==');
+background-size:cover;
+background-position:center;
+filter:blur(7px);
+transform:scale(1.05);
+z-index:-1;
+}
+a{color:inherit;}
+.wrap{ max-width:900px; margin:0 auto; padding:0 28px; }
+.heading{
+font-family:'Roca Two','Fraunces',Georgia,serif;
+font-style:normal;
+font-weight:700;
+letter-spacing:-0.01em;
+}
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto;}
+*{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+}
+a:focus-visible, summary:focus-visible{
+outline:2px solid var(--brown);
+outline-offset:3px;
+border-radius:4px;
+}
+.hero{ text-align:center; padding:110px 0 70px; }
+.wordmark{
+font-size:clamp(38px, 8vw, 64px);
+letter-spacing:0.04em;
+line-height:1; margin:0; color:var(--brown);
+}
+.tagline{
+font-family:'Fraunces', Georgia, serif;
+font-style:italic; font-weight:400;
+font-size:clamp(19px, 2.8vw, 24px);
+color:var(--brown-soft); margin:18px 0 10px;
+}
+.positioning{
+max-width:480px; margin:0 auto; font-size:18px; line-height:1.6; color:var(--brown-muted);
+}
+.badges{
+display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:30px;
+}
+.badge{
+background:var(--olive); color:var(--white);
+padding:8px 18px; border-radius:999px; font-size:14px; letter-spacing:.02em;
+}
+.section{ padding:56px 0; border-top:1px solid var(--line); }
+.section-head{ text-align:center; margin-bottom:36px; }
+.section-eyebrow{
+text-transform:uppercase; letter-spacing:.16em; font-size:12px;
+color:var(--brown-muted); font-weight:600; margin:0 0 10px;
+}
+.section-title{
+font-size:clamp(26px, 4.2vw, 36px);
+margin:0; color:var(--brown);
+}
+.section-sub{
+max-width:480px; margin:12px auto 0; color:var(--brown-muted); font-size:16px; line-height:1.5;
+}
+.table-block{ margin-bottom:36px; }
+.table-title-row{
+display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap;
+gap:6px; margin-bottom:12px;
+}
+.table-title{ font-size:18px; color:var(--brown); margin:0; }
+.table-note{ font-size:13px; color:var(--brown-muted); margin:0; font-style:italic; }
+.table-card{
+background:var(--white);
+border-radius:26px;
+padding:6px 4px;
+box-shadow:0 24px 48px -32px rgba(75,18,32,0.35);
+overflow-x:auto; -webkit-overflow-scrolling:touch;
+}
+table{ border-collapse:collapse; width:100%; min-width:480px; font-size:15px; }
+thead th{
+text-align:right; font-weight:600; color:var(--burgundy);
+text-transform:uppercase; letter-spacing:.08em; font-size:12px;
+padding:18px 24px 14px; border-bottom:2px solid var(--burgundy); white-space:nowrap;
+font-family:'Fraunces',Georgia,serif;
+}
+thead th:first-child{ text-align:left; }
+tbody td{
+text-align:right; padding:15px 24px; color:var(--brown-soft);
+border-bottom:1px solid var(--line); white-space:nowrap;
+font-variant-numeric:tabular-nums;
+transition:background .15s ease;
+}
+tbody td:first-child{ text-align:left; font-weight:600; color:var(--brown); }
+tbody tr:last-child td{ border-bottom:none; }
+tbody tr:hover td{ background:var(--burgundy-tint); }
+.info-list{
+margin-top:32px;
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:14px;
+}
+.info-item{
+background:var(--olive-deep);
+border-radius:22px;
+padding:24px 26px;
+}
+.info-item h3{
+font-family:'Roca Two','Fraunces',Georgia,serif;
+font-weight:700; font-size:17px; margin:0 0 6px; color:var(--white);
+}
+.info-item p{ font-size:14px; line-height:1.5; color:#D9D6B8; margin:0; }
+@media (max-width:560px){ .info-list{ grid-template-columns:1fr; } }
+.accordion{ max-width:640px; margin:0 auto; }
+details{ border-bottom:1px solid var(--line); }
+details:last-child{ border-bottom:none; }
+summary{
+list-style:none; cursor:pointer; padding:18px 0;
+display:flex; align-items:center; justify-content:space-between;
+font-family:'Roca Two','Fraunces',Georgia,serif;
+font-weight:700; font-size:17px; color:var(--brown);
+}
+summary::-webkit-details-marker{ display:none; }
+.plus{ flex:0 0 auto; width:18px; height:18px; position:relative; margin-left:16px; }
+.plus::before, .plus::after{
+content:''; position:absolute; background:var(--brown);
+top:50%; left:50%; transform:translate(-50%,-50%);
+}
+.plus::before{ width:12px; height:1.5px; }
+.plus::after{ width:1.5px; height:12px; transition:opacity .15s ease; }
+details[open] > summary .plus::after{ opacity:0; }
+.accordion-body{ padding:0 0 20px; color:var(--brown-muted); font-size:15px; line-height:1.6; }
+.accordion-body p{ margin:0 0 8px; }
+.accordion-body p:last-child{ margin-bottom:0; }
+.cta{ text-align:center; }
+.cta-sub{ color:var(--brown-muted); font-size:16px; max-width:420px; margin:12px auto 30px; line-height:1.5; }
+.cta-buttons{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+.btn{
+display:inline-flex; align-items:center; gap:9px;
+padding:13px 26px; border-radius:999px;
+font-family:'Roca Two','Fraunces',Georgia,serif;
+font-size:15px; font-weight:700;
+text-decoration:none; transition:opacity .15s ease; border:1px solid var(--brown);
+}
+.btn:hover{ opacity:.75; }
+.btn-primary{ background:var(--olive); color:var(--white); border-color:var(--olive); }
+.btn-secondary{ background:transparent; color:var(--brown); }
+.btn-olive-deep{ background:var(--olive-deep); color:var(--white); border-color:var(--olive-deep); }
+.btn svg{ width:16px; height:16px; }
+.panel{ background:var(--white); border-radius:26px; border-bottom:none; margin-bottom:16px;
+box-shadow:0 24px 48px -32px rgba(75,18,32,0.35); }
+.panel > summary{ padding:24px 28px; font-size:22px; }
+.panel-body{ padding:4px 22px 28px; }
+#menu{ border-top:none; padding-top:20px; }
+.details-block{ margin-bottom:44px; }
+.details-title{ text-align:center; margin:0 0 22px; }
+.sub-title{ font-size:22px; color:var(--brown); margin:36px 0 14px; text-align:center; }
+.sub-title.alt{ margin-top:32px; font-size:18px; }
+.callout{ background:var(--burgundy-tint); border-radius:22px; padding:22px 26px; text-align:center; margin-bottom:8px; }
+.callout h3{ margin:0 0 6px; font-size:19px; color:var(--burgundy); }
+.callout p{ margin:0; color:var(--brown-soft); font-size:15px; line-height:1.55; }
+.panel .section-head{ margin-bottom:24px; }
+.panel .table-card{ box-shadow:none; border:1px solid var(--line); }
+@media (max-width:560px){ .panel > summary{ padding:20px; } .panel-body{ padding:0 12px 22px; } }
+.order-intro{ text-align:center; margin-bottom:22px; max-width:520px; }
+#orderApp .card{
+background:var(--white);
+border-radius:26px;
+padding:28px 24px;
+margin-top:10px;
+box-shadow:0 24px 48px -32px rgba(75,18,32,0.35);
+}#orderApp .card:first-of-type{ margin-top:0; }#orderApp .card h2{
+font-family:'Fraunces', Georgia, serif;
+font-style:italic; font-weight:500;
+font-size:22px; color:var(--brown);
+margin:0 0 4px;
+}#orderApp .card .sub{ font-size:13px; color:var(--brown-muted); margin-bottom:18px; }#orderApp label{
+display:block;
+font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+color:var(--brown-muted); font-weight:700;
+margin:16px 0 6px;
+font-family:'Evolventa', Arial, sans-serif;
+}#orderApp label:first-of-type{ margin-top:0; }#orderApp input[type=text],#orderApp input[type=tel],#orderApp select,#orderApp textarea{
+width:100%;
+padding:13px 15px;
+border:1px solid var(--line);
+border-radius:12px;
+background:var(--fill);
+font-family:'Evolventa', Arial, sans-serif;
+font-size:15px;
+color:var(--brown);
+appearance:none;
+}#orderApp select{
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%238A6350' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+background-repeat:no-repeat;
+background-position:right 16px center;
+padding-right:40px;
+}#orderApp textarea{ resize:vertical; min-height:70px; }#orderApp .row2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:480px){ #orderApp .row2{ grid-template-columns:1fr; } }
+#orderApp .radio-group{ display:flex; gap:10px; margin-top:6px; flex-wrap:wrap; }#orderApp .radio-pill{
+flex:1; min-width:150px;
+border:1px solid var(--line);
+border-radius:999px;
+padding:11px 16px;
+text-align:center;
+font-size:13px;
+cursor:pointer;
+color:var(--brown-muted);
+transition:all .15s ease;
+}#orderApp .radio-pill input{ display:none; }#orderApp .radio-pill.active{
+background:var(--olive);
+color:var(--white);
+border-color:var(--olive);
+}#orderApp .summary{
+margin-top:22px;
+background:var(--white);
+border-radius:26px;
+padding:24px 24px 22px;
+box-shadow:0 24px 48px -32px rgba(75,18,32,0.35);
+}#orderApp .summary-eyebrow{
+text-transform:uppercase; letter-spacing:.14em; font-size:11px;
+color:var(--brown-muted); font-weight:700; margin:0 0 14px;
+}#orderApp .summary-row{
+display:flex; justify-content:space-between;
+font-size:14.5px; color:var(--brown-soft); padding:7px 0;
+border-bottom:1px solid var(--line);
+}#orderApp .summary-row.total{
+margin-top:4px; padding-top:14px; border-bottom:none;
+font-weight:700; color:var(--brown); font-size:16px;
+}#orderApp .summary-row .val{ font-variant-numeric:tabular-nums; font-weight:700; }#orderApp .deposit-highlight{
+margin-top:16px;
+background:var(--olive-deep);
+color:var(--white);
+border-radius:22px;
+padding:18px 22px;
+text-align:center;
+}#orderApp .deposit-highlight .amt{
+font-family:'Fraunces', Georgia, serif;
+font-style:italic; font-weight:600;
+font-size:28px;
+display:block;
+}#orderApp .deposit-highlight .lbl{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; opacity:.85; }#orderApp .pay-info{
+margin-top:16px;
+font-size:13px; line-height:1.5;
+color:var(--brown-soft);
+background:var(--fill);
+border:1px dashed var(--line);
+border-radius:16px;
+padding:14px 16px;
+}#orderApp .pay-info b{ color:var(--brown); }#orderApp .submit-btn{
+display:flex; align-items:center; justify-content:center; gap:9px;
+width:100%;
+margin-top:22px;
+padding:15px;
+border:1px solid var(--olive-deep);
+border-radius:999px;
+background:var(--olive-deep);
+color:var(--white);
+font-family:'Fraunces', Georgia, serif;
+font-weight:700;
+font-size:15px;
+cursor:pointer;
+transition:opacity .15s ease;
+}#orderApp .submit-btn:hover{ opacity:.75; }#orderApp .submit-btn svg{ width:17px; height:17px; }#orderApp .helper-note{ text-align:center; font-size:12.5px; color:var(--brown-muted); margin-top:12px; }#orderApp .receipt-card{ text-align:left; }#orderApp .receipt-header{ text-align:center; margin-bottom:16px; }#orderApp .receipt-brand{ font-size:20px; color:var(--brown-muted); margin:0; letter-spacing:0.04em; }#orderApp .receipt-tag{ font-size:18px; font-weight:700; letter-spacing:.02em; text-transform:uppercase; color:var(--brown); margin:6px 0 0; }#orderApp .receipt-subwarning{ font-size:12px; font-weight:700; letter-spacing:.02em; color:var(--burgundy); margin:5px 0 0; }#orderApp .receipt-row{
+display:flex; justify-content:space-between; gap:12px;
+font-size:14px; color:var(--brown-soft); padding:6px 0;
+}#orderApp .receipt-row span:first-child{ color:var(--brown-muted); }#orderApp .receipt-row span:last-child{ font-weight:700; color:var(--brown); text-align:right; }#orderApp .receipt-divider{ height:1px; background:var(--line); margin:10px 0; }#orderApp .receipt-total{ font-size:16px; }#orderApp .receipt-total span:last-child{ color:var(--burgundy); }#orderApp .receipt-eta{ font-size:12px; line-height:1.5; color:var(--brown-soft); margin-top:12px; }#orderApp .receipt-eta b{ color:var(--brown); }#orderApp .receipt-note{ font-size:12px; line-height:1.5; color:var(--brown-muted); margin-top:10px; }#orderApp .receipt-note b{ color:var(--brown); }#orderApp .receipt-thanks{ text-align:center; font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--brown); margin-top:14px; font-size:15px; }
+#orderApp .card, #orderApp .summary{ box-shadow:none; border:1px solid var(--line); }
+#orderApp .card h2{ font-size:20px; }
+#orderApp .row2{ margin-top:16px; align-items:end; }
+#orderApp .row2 > div{ display:flex; flex-direction:column; justify-content:flex-end; }
+#orderApp #otherTextureField{ margin-top:16px; }
+#orderApp .radio-group{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+#orderApp .radio-group .radio-pill{
+margin:0; min-width:0; min-height:46px; display:flex; align-items:center; justify-content:center;
+text-transform:none; letter-spacing:0; font-weight:400; font-size:13px; line-height:1.2;
+}
+@media (max-width:360px){ #orderApp .radio-group{ grid-template-columns:1fr; } }
+footer{ text-align:center; padding:50px 28px 44px; }
+.footer-word{ font-size:24px; margin:0; color:var(--brown); }
+.footer-tag{ font-style:italic; color:var(--brown-muted); font-size:14px; margin:6px 0 4px; }
+.footer-loc{ color:var(--brown-muted); font-size:12px; letter-spacing:.06em; }
+@media (max-width:640px){
+.hero{ padding:80px 0 50px; }
+.section{ padding:44px 0; }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+<h1 class="wordmark heading">SANA HAIR</h1>
+<p class="tagline">Premium, Within Reach.</p>
+<p class="positioning">Raw and virgin human hair, honestly priced. For orders across Zambia and internationally.</p>
+<div class="badges">
+<span class="badge">Preorder &amp; In Stock</span>
+<span class="badge">Individuals &amp; Businesses</span>
+<span class="badge">HD &amp; Transparent Lace</span>
+</div>
+</div>
+</header>
+<section class="section" id="menu">
+<div class="wrap">
+<div class="details-block" id="details">
+<h2 class="section-title heading details-title">Details</h2>
+<div class="details-body">
+<div class="callout">
+<h3 class="heading">Free maintenance with every wig</h3>
+<p>When you order a wig from us, you get free maintenance. This includes, but is not limited to, revamping, steaming, cutting and styling.</p>
+</div>
+<div class="section-head">
+<h3 class="sub-title heading">Services &amp; customizations</h3>
+<p class="section-sub">Every wig can be tailored to your preference. Customizations start from a minimum of 350 ZMW, with the final cost subject to change according to complexity. We also customize wigs purchased elsewhere.</p>
+</div>
+<div class="info-list">
+<div class="info-item"><h3>Nigerian Hairline Plucking</h3><p>A softer, denser hairline pluck for a fuller, natural look.</p></div>
+<div class="info-item"><h3>Natural Hairline Plucking</h3><p>A finer, sparser pluck that mimics a natural hairline.</p></div>
+<div class="info-item"><h3>Bleaching of Knots</h3><p>Lightens the knots at the base for an undetectable, natural scalp appearance.</p></div>
+<div class="info-item"><h3>Coloring</h3><p>Custom color and tone changes to match your desired look.</p></div>
+<div class="info-item"><h3>Curling</h3><p>Curl patterns styled to your preferred size and texture.</p></div>
+<div class="info-item"><h3>Steam Styling</h3><p>Steam-set styling for lasting curls or waves with a natural finish.</p></div>
+<div class="info-item"><h3>Layers</h3><p>Custom layering cut to add movement and shape.</p></div>
+</div>
+<div class="section-head">
+<h3 class="sub-title heading">Terms &amp; Conditions</h3>
+</div>
+<div class="accordion">
+<details open>
+<summary>Preorder Basis<span class="plus"></span></summary>
+<div class="accordion-body"><p>Sana operates primarily on a preorder basis, with select items available in stock. Preorders are sourced once your deposit is received.</p></div>
+</details>
+<details>
+<summary>Payment<span class="plus"></span></summary>
+<div class="accordion-body"><p>A 50% deposit is required to place any order. The remaining 50% is due within 7 days of your wig arriving in Zambia.</p></div>
+</details>
+<details>
+<summary>Pricing<span class="plus"></span></summary>
+<div class="accordion-body">
+<p>Prices reflect raw and virgin human hair, sourced and priced transparently. Non-straight and non-body-wave textures carry a 280 ZMW surcharge.</p>
+<p>Prices are quoted in Zambian Kwacha at the prevailing exchange rate and may adjust if that rate shifts significantly.</p>
+</div>
+</details>
+<details>
+<summary>Order Timeline<span class="plus"></span></summary>
+<div class="accordion-body"><p>Once customization details are confirmed, your wig is typically completed within 5–7 days, with updates throughout.</p></div>
+</details>
+<details>
+<summary>Returns &amp; Exchanges<span class="plus"></span></summary>
+<div class="accordion-body"><p>Wigs are inspected for quality upon arrival. If yours arrives damaged and you're not happy with it, a return is accepted. In these cases, we offer an exchange for another in-stock wig of similar price, or a new order of a similar-priced wig. Wigs that have been installed, modified, or customized in any way no longer qualify for return.</p></div>
+</details>
+<details>
+<summary>Communication<span class="plus"></span></summary>
+<div class="accordion-body"><p>We communicate closely with clients on every detail of their wig, and offer consultations where needed to help you find the hair that best suits you. From the moment your order is placed to delivery, we keep you updated on shipping progress, transit locations, any delays, and estimated arrival times.</p></div>
+</details>
+</div>
+</div>
+</div>
+<details class="panel" id="prices">
+<summary>Price List<span class="plus"></span></summary>
+<div class="panel-body">
+<div class="section-head">
+<p class="section-sub">All prices in Zambian Kwacha (ZMW). Straight and body wave textures shown below.</p>
+</div>
+<div class="table-block">
+<div class="table-title-row">
+<h3 class="table-title heading">Standard Wigs: Straight / Body Wave</h3>
+<p class="table-note">+280 ZMW for other textures</p>
+</div>
+<div class="table-card">
+<table>
+<thead><tr><th>Length</th><th>HD 4×4</th><th>HD 5×5</th><th>HD 13×4</th><th>HD 13×6</th></tr></thead>
+<tbody>
+<tr><td>16"</td><td>3,740</td><td>3,860</td><td>3,980</td><td>4,100</td></tr>
+<tr><td>18"</td><td>4,300</td><td>4,420</td><td>4,530</td><td>4,650</td></tr>
+<tr><td>20"</td><td>4,890</td><td>5,010</td><td>5,170</td><td>5,290</td></tr>
+<tr><td>22"</td><td>5,010</td><td>5,090</td><td>5,210</td><td>5,330</td></tr>
+<tr><td>24"</td><td>5,650</td><td>5,810</td><td>5,930</td><td>6,050</td></tr>
+<tr><td>26"</td><td>6,520</td><td>6,680</td><td>6,800</td><td>6,920</td></tr>
+<tr><td>28"</td><td>7,480</td><td>7,600</td><td>7,720</td><td>7,840</td></tr>
+<tr><td>30"</td><td>8,630</td><td>8,750</td><td>8,870</td><td>8,990</td></tr>
+<tr><td>32"</td><td>9,790</td><td>9,910</td><td>10,020</td><td>10,140</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="table-block">
+<div class="table-title-row">
+<h3 class="table-title heading">Standard Wigs: Transparent Lace</h3>
+<p class="table-note">+280 ZMW for other textures</p>
+</div>
+<div class="table-card">
+<table>
+<thead><tr><th>Length</th><th>4×4</th><th>5×5</th><th>13×4</th><th>13×6</th></tr></thead>
+<tbody>
+<tr><td>16"</td><td>2,940</td><td>3,060</td><td>3,180</td><td>3,300</td></tr>
+<tr><td>18"</td><td>3,500</td><td>3,620</td><td>3,740</td><td>3,860</td></tr>
+<tr><td>20"</td><td>4,100</td><td>4,220</td><td>4,380</td><td>4,500</td></tr>
+<tr><td>22"</td><td>4,220</td><td>4,300</td><td>4,420</td><td>4,530</td></tr>
+<tr><td>24"</td><td>4,850</td><td>5,010</td><td>5,130</td><td>5,250</td></tr>
+<tr><td>26"</td><td>5,730</td><td>5,890</td><td>6,010</td><td>6,130</td></tr>
+<tr><td>28"</td><td>6,680</td><td>6,800</td><td>6,920</td><td>7,040</td></tr>
+<tr><td>30"</td><td>7,840</td><td>7,960</td><td>8,080</td><td>8,190</td></tr>
+<tr><td>32"</td><td>8,990</td><td>9,110</td><td>9,230</td><td>9,350</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="table-block">
+<div class="table-title-row">
+<h3 class="table-title heading">Bob Wigs: HD Lace</h3>
+<p class="table-note">+280 ZMW for other textures</p>
+</div>
+<div class="table-card">
+<table>
+<thead><tr><th>Length</th><th>4×4</th><th>5×5</th><th>13×4</th><th>13×6</th></tr></thead>
+<tbody>
+<tr><td>10"</td><td>3,420</td><td>3,500</td><td>3,580</td><td>3,660</td></tr>
+<tr><td>12"</td><td>3,940</td><td>4,020</td><td>4,100</td><td>4,180</td></tr>
+<tr><td>14"</td><td>4,570</td><td>4,650</td><td>4,730</td><td>4,810</td></tr>
+<tr><td>16"</td><td>5,370</td><td>5,450</td><td>5,530</td><td>5,610</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="table-block">
+<div class="table-title-row">
+<h3 class="table-title heading">Bob Wigs: Transparent Lace</h3>
+<p class="table-note">+280 ZMW for other textures</p>
+</div>
+<div class="table-card">
+<table>
+<thead><tr><th>Length</th><th>4×4</th><th>5×5</th><th>13×4</th><th>13×6</th></tr></thead>
+<tbody>
+<tr><td>10"</td><td>2,630</td><td>2,710</td><td>2,780</td><td>2,860</td></tr>
+<tr><td>12"</td><td>3,140</td><td>3,220</td><td>3,300</td><td>3,380</td></tr>
+<tr><td>14"</td><td>3,780</td><td>3,860</td><td>3,940</td><td>4,020</td></tr>
+<tr><td>16"</td><td>4,570</td><td>4,650</td><td>4,730</td><td>4,810</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="info-list">
+<div class="info-item"><h3>50% Deposit</h3><p>Secures your order and funds sourcing. Balance due within 7 days of arrival.</p></div>
+<div class="info-item"><h3>5–7 Days</h3><p>From final customization to completion, with updates throughout.</p></div>
+<div class="info-item"><h3>7-Day Window</h3><p>Unclaimed orders after 7 days of arrival are not held.</p></div>
+<div class="info-item"><h3>Lace Options</h3><p>HD for the most natural melt, transparent for a lighter finish.</p></div>
+</div>
+</div>
+</details>
+<details class="panel" id="order">
+<summary>Order<span class="plus"></span></summary>
+<div class="panel-body">
+<p class="section-sub order-intro">Tell us what you're looking for by completing the order form below. Your total and deposit will be calculated automatically, and your order will be sent directly to us on WhatsApp for confirmation.</p>
+<div id="orderApp">
+<div class="card">
+<h2>Your details</h2>
+<div class="sub">So we know who to reach out to.</div>
+<label for="name">Full name</label>
+<input type="text" id="name" placeholder="e.g. Chanda Mwape">
+<div class="row2">
+<div>
+<label for="phone">Phone number</label>
+<input type="tel" id="phone" placeholder="e.g. 097X XXX XXX">
+</div>
+<div>
+<label for="location">Delivery location (as on Yango)</label>
+<input type="text" id="location" placeholder="e.g. Lusaka, Kabulonga">
+</div>
+</div>
+</div>
+<div class="card">
+<h2>Your wig</h2>
+<div class="sub">Select what you'd like to order.</div>
+<label for="item">Wig</label>
+<select id="item"></select>
+<label>Texture</label>
+<div class="radio-group">
+<label class="radio-pill active" data-texture="Straight/Body Wave">
+<input type="radio" name="texture" value="Straight/Body Wave" checked> Straight / Body Wave
+</label>
+<label class="radio-pill" data-texture="Other">
+<input type="radio" name="texture" value="Other"> Other texture
+</label>
+</div>
+<div id="otherTextureField" style="display:none;">
+<label for="otherTextureInput">Which texture?</label>
+<input type="text" id="otherTextureInput" placeholder="e.g. Curly, Deep Wave, Kinky, Jerry Curly">
+</div>
+<label for="qty">Quantity</label>
+<input type="text" id="qty" value="1" inputmode="numeric">
+<label for="notes">Customizations and other notes</label>
+<textarea id="notes" placeholder="Any special requests..."></textarea>
+</div>
+<div class="summary">
+<p class="summary-eyebrow">Order Summary</p>
+<div class="summary-row"><span>Unit price</span><span class="val" id="unitPrice">-</span></div>
+<div class="summary-row"><span>Quantity</span><span class="val" id="qtyDisplay">1</span></div>
+<div class="summary-row"><span>Service fee</span><span class="val" id="serviceFee">-</span></div>
+<div class="summary-row total"><span>Total</span><span class="val" id="totalPrice">-</span></div>
+<div class="deposit-highlight">
+<span class="lbl">Deposit Due Now (50% + fees)</span>
+<span class="amt" id="depositAmt">-</span>
+</div>
+<div class="summary-row"><span>Balance due when your wig is ready</span><span class="val" id="balanceAmt">-</span></div>
+<div class="pay-info">
+Send your deposit via Mobile Money to <b>0973694776</b> (MUTINTA SAKALA).
+Once sent, tap the button below. Your order and payment reference will go straight to us on WhatsApp for confirmation.
+<br><br>
+<b>Estimated ready date:</b> <span id="etaDatePreSubmit">-</span>. Customizations may take longer depending on complexity.
+<br><br>
+The remaining balance is due when your wig is ready for collection.
+</div>
+</div>
+<button class="submit-btn" id="submitBtn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+Submit Order via WhatsApp
+</button>
+<p class="helper-note">You'll be redirected to WhatsApp with your order details pre-filled.</p>
+<div class="card receipt-card" id="receiptCard" style="display:none; margin-top:24px;">
+<div id="receiptContent">
+<div class="receipt-header">
+<p class="receipt-tag">Order Request Summary</p>
+<p class="receipt-subwarning">Please note: this is not proof of payment</p>
+</div>
+<div class="receipt-row"><span>Order Ref</span><span id="rOrderId">-</span></div>
+<div class="receipt-row"><span>Date</span><span id="rDate">-</span></div>
+<div class="receipt-divider"></div>
+<div class="receipt-row"><span>Name</span><span id="rName">-</span></div>
+<div class="receipt-row"><span>Phone</span><span id="rPhone">-</span></div>
+<div class="receipt-row"><span>Delivery</span><span id="rLocation">-</span></div>
+<div class="receipt-divider"></div>
+<div class="receipt-row"><span>Item</span><span id="rItem">-</span></div>
+<div class="receipt-row"><span>Texture</span><span id="rTexture">-</span></div>
+<div class="receipt-row"><span>Quantity</span><span id="rQty">-</span></div>
+<div class="receipt-divider"></div>
+<div class="receipt-row"><span>Total</span><span id="rTotal">-</span></div>
+<div class="receipt-row"><span>Service fee</span><span id="rFee">-</span></div>
+<div class="receipt-row receipt-total"><span>Deposit due now</span><span id="rDeposit">-</span></div>
+<div class="receipt-row"><span>Balance due on collection</span><span id="rBalance">-</span></div>
+<div class="receipt-divider"></div>
+<p class="receipt-eta"><b>Estimated ready date:</b> <span id="rEtaDate">-</span>. Customizations may take longer depending on complexity. The remaining balance is due when your wig is ready for collection.</p>
+<p class="receipt-note">This summary confirms what you've requested to order. It is <b>not proof that payment has been made or received</b>. Please send your deposit via Mobile Money to <b>0973694776</b> (MUTINTA SAKALA). Your order is only confirmed once we verify the deposit on our end.</p>
+<p class="receipt-thanks">Thank you for shopping with Sana!</p>
+</div>
+<button class="submit-btn" id="downloadReceiptBtn" style="margin-top:18px;">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
+Download Order Summary
+</button>
+</div>
+</div>
+<h3 class="sub-title heading alt">Prefer to talk?</h3>
+<div class="cta-buttons">
+<a class="btn btn-olive-deep" href="mailto:saanahair.co@gmail.com" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+Email Us
+</a>
+<a class="btn btn-olive-deep" href="tel:+260973694776">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+Call / SMS 0973 694 776
+</a>
+<a class="btn btn-olive-deep" href="https://instagram.com/saanahair" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg>
+Follow on Instagram
+</a>
+</div>
+</div>
+</details>
+</div>
+</section>
+<footer>
+<p class="footer-word heading">SANA.</p>
+<p class="footer-tag">Premium, Within Reach.</p>
+<p class="footer-loc">LUSAKA, ZAMBIA</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+(function(){
+const priceList = [];
+const standardHD = {16:[3740,3860,3980,4100],18:[4300,4420,4530,4650],20:[4890,5010,5170,5290],22:[5010,5090,5210,5330],24:[5650,5810,5930,6050],26:[6520,6680,6800,6920],28:[7480,7600,7720,7840],30:[8630,8750,8870,8990],32:[9790,9910,10020,10140]};
+const standardTrans = {16:[2940,3060,3180,3300],18:[3500,3620,3740,3860],20:[4100,4220,4380,4500],22:[4220,4300,4420,4530],24:[4850,5010,5130,5250],26:[5730,5890,6010,6130],28:[6680,6800,6920,7040],30:[7840,7960,8080,8190],32:[8990,9110,9230,9350]};
+const bobHD = {10:[3420,3500,3580,3660],12:[3940,4020,4100,4180],14:[4570,4650,4730,4810],16:[5370,5450,5530,5610]};
+const bobTrans = {10:[2630,2710,2780,2860],12:[3140,3220,3300,3380],14:[3780,3860,3940,4020],16:[4570,4650,4730,4810]};
+const laceSizes = ["4x4","5x5","13x4","13x6"];
+const EXCHANGE_RATE = 19.89;
+const ALIBABA_FEE_USD = 3.50;
+const ALIBABA_FEE_ZMW = ALIBABA_FEE_USD * EXCHANGE_RATE;
+const TRANSACTION_FEE_ZMW = 50;
+function addRows(data, category, surcharge) {
+for (const length in data) {
+data[length].forEach((price, i) => {
+priceList.push({ label: `${category}: ${length} inches ${laceSizes[i]}`, price: price, surcharge: surcharge });
+});
+}
+}
+addRows(standardHD, "Standard HD", 280);
+addRows(standardTrans, "Standard Transparent", 280);
+addRows(bobHD, "Bob HD", 280);
+addRows(bobTrans, "Bob Transparent", 280);
+const itemSelect = document.getElementById('item');
+priceList.forEach((p, idx) => {
+const opt = document.createElement('option');
+opt.value = idx;
+opt.textContent = p.label;
+itemSelect.appendChild(opt);
+});
+let selectedTexture = "Straight/Body Wave";
+document.querySelectorAll('.radio-pill').forEach(pill => {
+pill.addEventListener('click', () => {
+document.querySelectorAll('.radio-pill').forEach(p => p.classList.remove('active'));
+pill.classList.add('active');
+selectedTexture = pill.dataset.texture;
+document.getElementById('otherTextureField').style.display =
+selectedTexture === "Other" ? "block" : "none";
+updateSummary();
+});
+});
+function fmt(n) {
+return n.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' ZMW';
+}
+function formatEtaDate(fromDate) {
+const eta = new Date(fromDate);
+eta.setDate(eta.getDate() + 8);
+return eta.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+document.getElementById('etaDatePreSubmit').textContent = formatEtaDate(new Date());
+function updateSummary() {
+const idx = itemSelect.value;
+const item = priceList[idx];
+let qty = parseInt(document.getElementById('qty').value) || 1;
+if (qty < 1) qty = 1;
+const unit = item.price + (selectedTexture === "Other" ? item.surcharge : 0);
+const total = unit * qty;
+const deposit = (total / 2) + ALIBABA_FEE_ZMW + TRANSACTION_FEE_ZMW;
+document.getElementById('unitPrice').textContent = fmt(unit);
+document.getElementById('qtyDisplay').textContent = qty;
+document.getElementById('totalPrice').textContent = fmt(total);
+document.getElementById('serviceFee').textContent = fmt(ALIBABA_FEE_ZMW + TRANSACTION_FEE_ZMW);
+document.getElementById('depositAmt').textContent = fmt(deposit);
+document.getElementById('balanceAmt').textContent = fmt(total / 2);
+}
+itemSelect.addEventListener('change', updateSummary);
+document.getElementById('qty').addEventListener('input', updateSummary);
+updateSummary();
+document.getElementById('submitBtn').addEventListener('click', () => {
+const name = document.getElementById('name').value.trim();
+const phone = document.getElementById('phone').value.trim();
+const location = document.getElementById('location').value.trim();
+const notes = document.getElementById('notes').value.trim();
+const idx = itemSelect.value;
+const item = priceList[idx];
+const qty = parseInt(document.getElementById('qty').value) || 1;
+const unit = item.price + (selectedTexture === "Other" ? item.surcharge : 0);
+const total = unit * qty;
+const deposit = (total / 2) + ALIBABA_FEE_ZMW + TRANSACTION_FEE_ZMW;
+const otherTextureName = document.getElementById('otherTextureInput').value.trim();
+const textureDisplay = selectedTexture === "Other"
+? `Other (${otherTextureName || "not specified"})`
+: selectedTexture;
+if (!name || !phone) {
+alert("Please enter your name and phone number before submitting.");
+return;
+}
+if (selectedTexture === "Other" && !otherTextureName) {
+alert("Please tell us which texture you'd like.");
+return;
+}
+const message =
+`New Sana Order
+Name: ${name}
+Phone: ${phone}
+Delivery: ${location || "-"}
+
+Item: ${item.label}
+Texture: ${textureDisplay}
+Quantity: ${qty}
+
+Total: ${fmt(total)}
+Service fee: ${fmt(ALIBABA_FEE_ZMW + TRANSACTION_FEE_ZMW)}
+Deposit due now: ${fmt(deposit)}
+Balance due on collection: ${fmt(total / 2)}
+
+Customizations and other notes: ${notes || "-"}
+
+Thank you for shopping with Sana!`;
+const whatsappNumber = "260973694776";
+const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+const orderId = "SN-" + Date.now().toString().slice(-6);
+const now = new Date();
+const dateStr = now.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' }) +
+", " + now.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
+document.getElementById('rOrderId').textContent = orderId;
+document.getElementById('rDate').textContent = dateStr;
+document.getElementById('rEtaDate').textContent = formatEtaDate(now);
+document.getElementById('rName').textContent = name;
+document.getElementById('rPhone').textContent = phone;
+document.getElementById('rLocation').textContent = location || "-";
+document.getElementById('rItem').textContent = item.label;
+document.getElementById('rTexture').textContent = textureDisplay;
+document.getElementById('rQty').textContent = qty;
+document.getElementById('rTotal').textContent = fmt(total);
+document.getElementById('rFee').textContent = fmt(ALIBABA_FEE_ZMW + TRANSACTION_FEE_ZMW);
+document.getElementById('rDeposit').textContent = fmt(deposit);
+document.getElementById('rBalance').textContent = fmt(total / 2);
+document.getElementById('receiptCard').style.display = 'block';
+document.getElementById('receiptCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+window.open(url, "_blank");
+});
+document.getElementById('downloadReceiptBtn').addEventListener('click', () => {
+const node = document.getElementById('receiptContent');
+if (window.html2canvas) {
+document.body.classList.add('capturing');
+html2canvas(node, {
+backgroundColor: '#FFFFFF',
+scale: 2
+}).then(canvas => {
+document.body.classList.remove('capturing');
+const link = document.createElement('a');
+link.download = 'sana-order-receipt.png';
+link.href = canvas.toDataURL('image/png');
+link.click();
+}).catch(() => {
+document.body.classList.remove('capturing');
+});
+} else {
+window.print();
+}
+});
+})();
+(function(){
+function openHash(){ var el = location.hash && document.querySelector("details.panel" + location.hash); if(el) el.open = true; }
+window.addEventListener("hashchange", openHash); openHash();
+})();
+</script>
+</body>
+</html>
